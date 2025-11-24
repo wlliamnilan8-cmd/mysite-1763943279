@@ -1,0 +1,155 @@
+/* Custom Styles for PornDash Pixel Paradise */
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #ec4899, #8b5cf6);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, #db2777, #7c3aed);
+}
+
+/* Game canvas animations */
+#gameCanvas {
+    box-shadow: 0 0 50px rgba(236, 72, 153, 0.3);
+    animation: pulse-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes pulse-glow {
+    from {
+        box-shadow: 0 0 30px rgba(236, 72, 153, 0.3);
+    }
+    to {
+        box-shadow: 0 0 50px rgba(236, 72, 153, 0.5);
+    }
+}
+
+/* Level button animations */
+.level-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.level-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.level-btn:hover::before {
+    left: 100%;
+}
+
+/* Control button styles */
+.control-btn {
+    transition: all 0.2s ease;
+}
+
+.control-btn:active {
+    transform: scale(0.9);
+    background: rgba(236, 72, 153, 0.8) !important;
+}
+
+/* Particle effects for game */
+.particle {
+    position: absolute;
+    pointer-events: none;
+    background: radial-gradient(circle, #ec4899, transparent);
+    border-radius: 50%;
+    animation: float 1s ease-out forwards;
+}
+
+@keyframes float {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(var(--tx), var(--ty)) scale(0);
+        opacity: 0;
+    }
+}
+
+/* Game over modal styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #1f2937, #111827);
+    border: 2px solid #ec4899;
+    border-radius: 20px;
+    padding: 2rem;
+    max-width: 90vw;
+    width: 400px;
+    text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    #gameCanvas {
+        height: 250px;
+    }
+}
+
+/* Loading animation */
+.loading-spinner {
+    border: 3px solid rgba(236, 72, 153, 0.3);
+    border-radius: 50%;
+    border-top: 3px solid #ec4899;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Achievement badges */
+.achievement-badge {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+}
